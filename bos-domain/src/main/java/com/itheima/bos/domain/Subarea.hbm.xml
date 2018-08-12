@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.itheima.bos.domain.Subarea" table="bc_subarea" schema="bos32">
+		<id name="id">
+			<column name="id" sql-type="varchar(32)" length="32"/>
+		</id>
+		<property name="addresskey">
+			<column name="addresskey" sql-type="varchar(100)" length="100" not-null="true"/>
+		</property>
+		<property name="startnum">
+			<column name="startnum" sql-type="varchar(30)" length="30" not-null="true"/>
+		</property>
+		<property name="endnum">
+			<column name="endnum" sql-type="varchar(30)" length="30" not-null="true"/>
+		</property>
+		<property name="single">
+			<column name="single" sql-type="char(1)" length="1" not-null="true"/>
+		</property>
+		<property name="position">
+			<column name="position" sql-type="varchar(255)" not-null="true"/>
+		</property>
+		<many-to-one name="bcDecidedzoneByDecidedzoneId" class="com.itheima.bos.domain.Decidedzone">
+			<column name="decidedzone_id" not-null="true"/>
+		</many-to-one>
+		<many-to-one name="bcRegionByRegionId" class="com.itheima.bos.domain.Region">
+			<column name="region_id" not-null="true"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

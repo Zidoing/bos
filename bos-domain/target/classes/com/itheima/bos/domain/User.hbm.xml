@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+				"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+				"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.itheima.bos.domain.User" table="t_user" schema="bos32">
+		<id name="id">
+			<column name="id" sql-type="varchar(32)" length="32"/>
+		</id>
+		<property name="username">
+			<column name="username" sql-type="varchar(20)" length="20"/>
+		</property>
+		<property name="password">
+			<column name="password" sql-type="varchar(32)" length="32"/>
+		</property>
+		<property name="salary">
+			<column name="salary" sql-type="double" precision="-1" not-null="true"/>
+		</property>
+		<property name="birthday">
+			<column name="birthday" sql-type="date" not-null="true"/>
+		</property>
+		<property name="gender">
+			<column name="gender" sql-type="varchar(10)" length="10" not-null="true"/>
+		</property>
+		<property name="station">
+			<column name="station" sql-type="varchar(40)" length="40" not-null="true"/>
+		</property>
+		<property name="telephone">
+			<column name="telephone" sql-type="varchar(11)" length="11" not-null="true"/>
+		</property>
+		<property name="remark">
+			<column name="remark" sql-type="varchar(255)" not-null="true"/>
+		</property>
+	</class>
+	<query name="user.editpassword">
+		UPDATE User SET password=? where id=?
+	</query>
+</hibernate-mapping>

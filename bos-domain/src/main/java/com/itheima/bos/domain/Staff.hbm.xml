@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+				"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+				"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.itheima.bos.domain.Staff" table="bc_staff" schema="bos32">
+		<id name="id">
+			<column name="id" sql-type="varchar(32)" length="32"/>
+			<generator class="uuid"/>
+		</id>
+		<property name="name">
+			<column name="name" sql-type="varchar(20)" length="20" not-null="true"/>
+		</property>
+		<property name="telephone">
+			<column name="telephone" sql-type="varchar(20)" length="20" not-null="true"/>
+		</property>
+		<property name="haspda">
+			<column name="haspda" sql-type="char(1)" length="1" not-null="true"/>
+		</property>
+		<property name="deltag">
+			<column name="deltag" sql-type="char(1)" length="1" not-null="true"/>
+		</property>
+		<property name="station">
+			<column name="station" sql-type="varchar(40)" length="40" not-null="true"/>
+		</property>
+		<property name="standard">
+			<column name="standard" sql-type="varchar(100)" length="100" not-null="true"/>
+		</property>
+		<set name="bcDecidedzonesById" inverse="true">
+			<key>
+				<column name="staff_id" not-null="true"/>
+			</key>
+			<one-to-many not-found="ignore" class="com.itheima.bos.domain.Decidedzone"/>
+		</set>
+	</class>
+	<query name="staff.delete">
+		UPDATE Staff set deltag = '1' where id=?
+	</query>
+</hibernate-mapping>
