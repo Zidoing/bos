@@ -21,7 +21,21 @@ public class Region {
     private String postcode;
     private String shortcode;
     private String citycode;
-    private Collection<Subarea> bcSubareasById;
+    private Collection <Subarea> bcSubareasById;
+
+    public Region() {
+    }
+
+    public Region(String id, String province, String city, String district, String postcode, String shortcode, String citycode, Collection <Subarea> bcSubareasById) {
+        this.id = id;
+        this.province = province;
+        this.city = city;
+        this.district = district;
+        this.postcode = postcode;
+        this.shortcode = shortcode;
+        this.citycode = citycode;
+        this.bcSubareasById = bcSubareasById;
+    }
 
     @Id
     @Column(name = "id", nullable = false, length = 32)

@@ -21,14 +21,14 @@
 			<column name="postcode" sql-type="varchar(50)" length="50" not-null="true"/>
 		</property>
 		<property name="shortcode">
-			<column name="shortcode" sql-type="varchar(30)" length="30" not-null="true"/>
+			<column name="shortcode" sql-type="varchar(30)" length="30" not-null="false"/>
 		</property>
 		<property name="citycode">
-			<column name="citycode" sql-type="varchar(30)" length="30" not-null="true"/>
+			<column name="citycode" sql-type="varchar(30)" length="30" not-null="false"/>
 		</property>
 		<set name="bcSubareasById" inverse="true">
 			<key>
-				<column name="region_id" not-null="true"/>
+				<column name="region_id" not-null="false"/>
 			</key>
 			<one-to-many not-found="ignore" class="com.itheima.bos.domain.Subarea"/>
 		</set>

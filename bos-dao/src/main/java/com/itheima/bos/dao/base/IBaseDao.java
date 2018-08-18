@@ -30,4 +30,7 @@ public interface IBaseDao<T> {
     public void pageQuery(PageBean pageBean);
 
 
+    public void saveOrUpdate(T entity);
+
+
 }

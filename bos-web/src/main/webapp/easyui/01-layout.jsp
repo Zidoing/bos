@@ -13,11 +13,19 @@
 
 
     <script type="text/javascript" src="${pageContext.request.contextPath }/js/ztree/jquery.ztree.all-3.5.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery.ocupload-1.1.2.js"></script>
 
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/zTreeStyle/zTreeStyle.css">
 
-
+    <script>
+        $(function () {
+            $("#mybutton").upload({
+                action: "xx.action",
+                name: "myFile"
+            })
+        })
+    </script>
 </head>
 <body class="easyui-layout">
 <!-- 使用div元素描述每个区域 -->
@@ -27,6 +35,10 @@
 
     <div class="easyui-accordion" data-options="fit:true">
         <div title="panel 1" data-options="iconCls:'icon-save'">
+
+
+            <input type="button" id="mybutton" value="upload">
+
             <a id="btn1" class="easyui-linkbutton">添加一个选项卡</a>
             <script>
                 $(function () {
